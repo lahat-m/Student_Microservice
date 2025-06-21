@@ -8,7 +8,8 @@
 	<version>1.0.0</version>
 	<name>Student Microservice</name>
 
-	<parent>
+	<!--~~(org.infinispan:infinispan-build-configuration-parent:14.0.33.Final failed. Unable to download POM: org.infinispan:infinispan-build-configuration-parent:14.0.33.Final. Tried repositories:
+https://repo.maven.apache.org/maven2: repo.maven.apache.org)~~>--><parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.5</version>
@@ -45,6 +46,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
