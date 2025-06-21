@@ -1,6 +1,7 @@
 package com.mmaas.StudentMicroservice.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,10 @@ public class StudentService {
     private final StudentRepository studentRepository;
 
     public Student createStudent(StudentDTO dto) {
+        Optional<Student> existingStudentEmailOptional = studentRepository.findByEmail(dto.getEmail());
+        if (existingStudentEmailOptional.isPresent()) {
+            throw new ResourceNotFoundException("Student with email " + dto.getEmail() + " already exists.");
+        }
         Student student = Student.builder()
                 .name(dto.getName())
                 .email(dto.getEmail())
